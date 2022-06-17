@@ -1,55 +1,63 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const userModel = new mongoose.Schema(
-    {
-        username:{
-            type: 'string',
-            unique:true, 
-            require: true,
-            Trimmed: true,
-        },
-
-    email:{
-        type: 'string',
-        require: true,
-        unique: true,
-        validate: [validateEmail, 'Please fill a valid email address'],
-        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
-
-
-
+const UserSchema = new mongoose.Schema(
+  {
+    username: {
+      type: String,
+      require: true,
+      min: 3,
+      max: 20,
+      unique: true,
     },
-    thoughts:[
-        {
-        type:Schema.types.ObjectId,
-
-
+    email: {
+      type: String,
+      required: true,
+      max: 50,
+      unique: true,
     },
-],
-friends: [
-    {
-    type: Schema.Types.ObjectId,
-    ref: "Users",
+    password: {
+      type: String,
+      required: true,
+      min: 6,
     },
-],
-
-},
-    
-{
-    
-    toJSON: {
-    virtuals: true,
+    profilePicture: {
+      type: String,
+      default: "",
     },
-    id:false,
-}
+    coverPicture: {
+      type: String,
+      default: "",
+    },
+    followers: {
+      type: Array,
+      default: [],
+    },
+    followings: {
+      type: Array,
+      default: [],
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
+    desc: {
+      type: String,
+      max: 50,
+    },
+    city: {
+      type: String,
+      max: 50,
+    },
+    from: {
+      type: String,
+      max: 50,
+    },
+    relationship: {
+      type: Number,
+      enum: [1, 2, 3],
+    },
+  },
+  { timestamps: true }
 );
 
-
-userSchema.virtual("friendCount").get(function () {
-  return this.friends.length;
-});
-
-
-const User = model("user", userModel);
-
-module.exports = User
+module.exports = mongoose.model("User", UserSchema);
