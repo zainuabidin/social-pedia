@@ -1,7 +1,12 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
+const helmet = require("helmet");
+const morgan = require("morgan");
 const mongoose = require("mongoose");
+const userRoute = require("./routes/Users")
+
+
 
 dotenv.config();
 mongoose.connect(
@@ -13,10 +18,14 @@ mongoose.connect(
 );
 
 
-app.get('/',(req,res)=>{
-    res.send("hello world")
-})
+app.use(express.json());
+app.use(helmet());
+app.use(morgan("common"));
 
-app.listen(8800, () => {
+app.use("/api/users", userRoute);
+
+
+
+app.listen(3001, () => {
   console.log("express is running");
 });
