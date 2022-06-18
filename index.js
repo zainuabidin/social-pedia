@@ -4,7 +4,8 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const userRoute = require("./routes/Users")
+const userRoute = require("./routes/users")
+const authRoute = require("./routes/auth")
 
 
 
@@ -23,6 +24,7 @@ app.use(helmet());
 app.use(morgan("common"));
 
 app.use("/api/users", userRoute);
+app.use("/api/auth", authRoute);
 
 
 
