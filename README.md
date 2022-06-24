@@ -46,7 +46,7 @@ THEN I am able to successfully create, update, and delete data in my database
 ## Videos
 
 
-[video1]()
+[video1](https://drive.google.com/file/d/1RyOecxuIDfNQ2MlLe_vuOYyH8QkLhT2H/view?usp=sharing)
 [video2]()
 [video3]()
 
