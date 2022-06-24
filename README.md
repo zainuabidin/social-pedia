@@ -47,8 +47,8 @@ THEN I am able to successfully create, update, and delete data in my database
 
 
 [video1](https://drive.google.com/file/d/1RyOecxuIDfNQ2MlLe_vuOYyH8QkLhT2H/view?usp=sharing)
-[video2]()
-[video3]()
+[video2](https://drive.google.com/file/d/1ZYDj__BUKDn8_YA15lA7s-K9XZurrB3V/view?usp=sharing)
+
 
 
 
